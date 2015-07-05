@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Entities", "Blog.Entit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Repositories", "Blog.Repositories\Blog.Repositories.csproj", "{20D658DB-45EC-410E-9397-9AA3D50B5365}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WebUI.Frontend", "Blog.WebUI.Frontend\Blog.WebUI.Frontend.csproj", "{211B110C-F424-4FB1-8698-AF205936E9AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{20D658DB-45EC-410E-9397-9AA3D50B5365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D658DB-45EC-410E-9397-9AA3D50B5365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20D658DB-45EC-410E-9397-9AA3D50B5365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{211B110C-F424-4FB1-8698-AF205936E9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211B110C-F424-4FB1-8698-AF205936E9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211B110C-F424-4FB1-8698-AF205936E9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211B110C-F424-4FB1-8698-AF205936E9AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

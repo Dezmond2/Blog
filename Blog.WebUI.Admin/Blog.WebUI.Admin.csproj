@@ -55,6 +55,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="VisualStudioGitIgnore, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualStudioGitIgnore.1.3.0.0\lib\net40\VisualStudioGitIgnore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
@@ -79,6 +83,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
+    <Content Include="git.ignore" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
