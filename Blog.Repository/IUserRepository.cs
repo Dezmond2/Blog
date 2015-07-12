@@ -9,7 +9,8 @@ namespace Blog.Repository
 {
      public interface IUserRepository
     {
-        User GetUser(string login, string password);
+        User GetUser(string login);
         List<User> GetUsers();
+        void UpdateUser(int Id, bool IsEnable);
     }
 }

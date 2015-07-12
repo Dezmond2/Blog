@@ -1,4 +1,6 @@
-create database MyBlog
+create database Blog
+
+use Blog;
 
 create table [User]
 (
@@ -14,7 +16,7 @@ create table [User]
  alter table [User] add constraint PK_User_Id primary key (Id);
 
  alter table [User] add constraint UQ_User_Login unique ([Login]);
- use MyBlog;
+ 
  create table Article
 (
 	Id int not null identity (1,1),

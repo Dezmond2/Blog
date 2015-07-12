@@ -22,8 +22,7 @@ namespace Blog.Repository
             {
                 return context.CreateObjectSet<Article>()
                     .Where(u => u.Published == true)
-                    .ToList();
-                
+                    .ToList();              
             }
         }
     }

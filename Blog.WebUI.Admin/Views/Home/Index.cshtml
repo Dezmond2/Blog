@@ -1,0 +1,28 @@
+﻿@using Blog.Entities;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+
+    List<User> users = ViewBag.Users;
+    WebGrid usersGrid = new WebGrid(users);
+}
+
+<h2>Index</h2>
+
+@usersGrid.GetHtml(
+        tableStyle: "grid",
+        headerStyle: "head",
+        alternatingRowStyle: "alt",
+        columns: usersGrid.Columns
+                (
+                        usersGrid.Column(format: (item) =>
+                                                Html.ActionLink("Edit", "UpdateUser", "Home", new RouteValueDictionary { { "Id", @item.Id }, { "IsEnable", @Html.Raw("IsEnable.Value") } }, null)),
+                        usersGrid.Column("Id"),
+                            usersGrid.Column("FirstName"),
+                            usersGrid.Column("LastName"),
+                            usersGrid.Column("Login"),
+                            usersGrid.Column("Password"),
+                            usersGrid.Column("IsAdmin"),
+                            usersGrid.Column("IsEnable", format: @<text><input name="IsEnable" id="IsEnable" type="checkbox" value=@(item.IsEnable) ? checked : unchacked /></text>)
+                                )
+                        )

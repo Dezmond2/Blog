@@ -12,11 +12,11 @@ namespace Blog.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class MyBlogEntities : DbContext
+
+    public partial class BlogEntities : DbContext
     {
-        public MyBlogEntities()
-            : base("name=MyBlogEntities")
+        public BlogEntities()
+            : base("name=BlogEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace Blog.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<User> User { get; set; }
         public DbSet<Article> Article { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

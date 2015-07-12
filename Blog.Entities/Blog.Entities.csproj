@@ -47,48 +47,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs">
-      <DependentUpon>MyBlogEntities.tt</DependentUpon>
+      <DependentUpon>BlogEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyBlogEntities.Context.cs">
+    <Compile Include="BlogEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyBlogEntities.Context.tt</DependentUpon>
+      <DependentUpon>BlogEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyBlogEntities.cs">
+    <Compile Include="BlogEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyBlogEntities.tt</DependentUpon>
+      <DependentUpon>BlogEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyBlogEntities.Designer.cs">
+    <Compile Include="BlogEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyBlogEntities.edmx</DependentUpon>
+      <DependentUpon>BlogEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs">
-      <DependentUpon>MyBlogEntities.tt</DependentUpon>
+      <DependentUpon>BlogEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="MyBlogEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyBlogEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="MyBlogEntities.Context.tt">
+    <EntityDeploy Include="BlogEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BlogEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BlogEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyBlogEntities.edmx</DependentUpon>
-      <LastGenOutput>MyBlogEntities.Context.cs</LastGenOutput>
+      <DependentUpon>BlogEntities.edmx</DependentUpon>
+      <LastGenOutput>BlogEntities.Context.cs</LastGenOutput>
     </None>
-    <None Include="MyBlogEntities.edmx.diagram">
-      <DependentUpon>MyBlogEntities.edmx</DependentUpon>
+    <None Include="BlogEntities.edmx.diagram">
+      <DependentUpon>BlogEntities.edmx</DependentUpon>
     </None>
-    <None Include="MyBlogEntities.tt">
+    <None Include="BlogEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyBlogEntities.edmx</DependentUpon>
-      <LastGenOutput>MyBlogEntities.cs</LastGenOutput>
+      <DependentUpon>BlogEntities.edmx</DependentUpon>
+      <LastGenOutput>BlogEntities.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Repository", "Blog.Repository\Blog.Repository.csproj", "{D8D82D09-0872-4883-9F97-E2256987656F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Entities", "Blog.Entities\Blog.Entities.csproj", "{C31AB606-F101-4E41-BCE9-ACEFCA4BBE50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WebUI.Admin", "Blog.WebUI\Blog.WebUI.Admin.csproj", "{D7C166FF-F7BE-417A-B28C-BB26DAC6E99D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WebUI.Frontend", "Blog.WebUI.Frontend\Blog.WebUI.Frontend.csproj", "{AE63696A-CD40-4A64-8B59-57F1DB618BA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WebUI.Admin", "Blog.WebUI.Admin\Blog.WebUI.Admin.csproj", "{D106D914-0123-43C9-A9C3-87ED0A2DB959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +25,14 @@ Global
 		{C31AB606-F101-4E41-BCE9-ACEFCA4BBE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C31AB606-F101-4E41-BCE9-ACEFCA4BBE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C31AB606-F101-4E41-BCE9-ACEFCA4BBE50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7C166FF-F7BE-417A-B28C-BB26DAC6E99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7C166FF-F7BE-417A-B28C-BB26DAC6E99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7C166FF-F7BE-417A-B28C-BB26DAC6E99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C166FF-F7BE-417A-B28C-BB26DAC6E99D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE63696A-CD40-4A64-8B59-57F1DB618BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE63696A-CD40-4A64-8B59-57F1DB618BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE63696A-CD40-4A64-8B59-57F1DB618BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE63696A-CD40-4A64-8B59-57F1DB618BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D106D914-0123-43C9-A9C3-87ED0A2DB959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D106D914-0123-43C9-A9C3-87ED0A2DB959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D106D914-0123-43C9-A9C3-87ED0A2DB959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D106D914-0123-43C9-A9C3-87ED0A2DB959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

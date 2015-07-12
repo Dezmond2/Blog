@@ -1,18 +1,16 @@
-﻿using Blog.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.Objects;
 
+using Blog.Entities;
+
 namespace Blog.Repository
 {
-    class EFUserRepository : IUserRepository
+    public class EFUserRepository : IUserRepository
     {
         #region Fields
+        BlogEntities entities = new BlogEntities();
         private readonly string _connectionString;
         #endregion
 
@@ -23,27 +21,24 @@ namespace Blog.Repository
         }
         public EFUserRepository()
         {
-            this._connectionString = ConfigurationManager.ConnectionStrings["MyBlogEntities"].ConnectionString;
+            this._connectionString = ConfigurationManager.ConnectionStrings["BlogEntities"].ConnectionString;
         }
         #endregion
-        public User GetUser(string login, string password)
+        public User GetUser(string login)
         {
-            throw new NotImplementedException();
+            return entities.User.Single<User>(u => u.Login == login);
         }
 
         public List<User> GetUsers()
         {
-            MyBlogEntities entities = new MyBlogEntities();
-            var userQuery = from user in entities.User select user;
-            List<User> users = userQuery.ToList();
-            return users;
+            return entities.User.Select<User, User>(u => u).ToList();
         }
 
         public void UpdateUser(int Id, bool IsEnable)
         { 
             using ( ObjectContext context = new ObjectContext(_connectionString))
             {
-                User user = context.CreateObjectSet<User>().First(u=>u.Id==Id);
+                User user = context.CreateObjectSet<User>().First(u => u.Id == Id);
                 user.IsEnable = IsEnable;
                 context.SaveChanges();
             }

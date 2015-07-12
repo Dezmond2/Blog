@@ -13,7 +13,7 @@ namespace Blog.WebUI.Frontend.Controllers
         private readonly IArticleRepository _articleRepository;
         public HomeController()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["MyBlogEntities"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["BlogEntities"].ConnectionString;
             this._articleRepository = new EFArticleRepository(connectionString);
         }
         //
