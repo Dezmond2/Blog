@@ -10,19 +10,23 @@
 <h2>Index</h2>
 
 @usersGrid.GetHtml(
-        tableStyle: "grid",
-        headerStyle: "head",
-        alternatingRowStyle: "alt",
-        columns: usersGrid.Columns
-                (
-                        usersGrid.Column(format: (item) =>
-                                                Html.ActionLink("Edit", "UpdateUser", "Home", new RouteValueDictionary { { "Id", @item.Id }, { "IsEnable", @Html.Raw("IsEnable.Value") } }, null)),
+        tableStyle: "table",
+        alternatingRowStyle: "alternate",
+        selectedRowStyle: "selected",
+        headerStyle: "header",
+        columns: usersGrid.Columns(
                         usersGrid.Column("Id"),
-                            usersGrid.Column("FirstName"),
-                            usersGrid.Column("LastName"),
-                            usersGrid.Column("Login"),
-                            usersGrid.Column("Password"),
-                            usersGrid.Column("IsAdmin"),
-                            usersGrid.Column("IsEnable", format: @<text><input name="IsEnable" id="IsEnable" type="checkbox" value=@(item.IsEnable) ? checked : unchacked /></text>)
-                                )
-                        )
+                        usersGrid.Column("FirstName"),
+                        usersGrid.Column("LastName"),
+                        usersGrid.Column("Login"),
+                        usersGrid.Column("Password"),
+                        usersGrid.Column("IsAdmin"),
+                        usersGrid.Column("IsEnable", format: (item) => @Html.Raw(
+                                                 "<input name='IsEnable' id='IsEnable' type='button' " +
+                                                 "onClick=\"location.href='" + 
+                                                 @Url.Action("UpdateUser", "Home", new {Id = item.Id, IsEnable = (item.IsEnable) ? "false" : "true"}, "http") +
+                                                 "'\" value='" +
+                                                 ((item.IsEnable) ? "On" : "Off") +
+                                                 "'</input>"))
+                                  )
+                    )
