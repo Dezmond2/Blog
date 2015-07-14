@@ -28,18 +28,25 @@ namespace Blog.Repository
         {
             return entities.User.Single<User>(u => u.Login == login);
         }
-
         public List<User> GetUsers()
         {
             return entities.User.Select<User, User>(u => u).ToList();
         }
-
-        public void UpdateUser(int Id, bool IsEnable)
-        { 
-            using ( ObjectContext context = new ObjectContext(_connectionString))
+        public void UpdateUser(int Id, bool? IsEnable, bool? IsAdmin)
+        {
+            using (ObjectContext context = new ObjectContext(_connectionString))
             {
                 User user = context.CreateObjectSet<User>().First(u => u.Id == Id);
-                user.IsEnable = IsEnable;
+
+                if (IsEnable != null)
+                {
+                    user.IsEnable = (bool)IsEnable;
+                }
+                if (IsAdmin != null)
+                {
+                    user.IsAdmin = (bool)IsAdmin;
+                }
+
                 context.SaveChanges();
             }
         }

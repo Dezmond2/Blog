@@ -25,9 +25,9 @@ namespace Blog.WebUI.Admin.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult UpdateUser(int Id, bool IsEnable)
+        public ActionResult UpdateUser(int Id, bool? IsEnable, bool? IsAdmin)
         {
-            this._userRepository.UpdateUser(Id, IsEnable);
+            this._userRepository.UpdateUser(Id, IsEnable, IsAdmin);
             var users = this._userRepository.GetUsers();
             ViewBag.Users = users;
             return View("Index");
