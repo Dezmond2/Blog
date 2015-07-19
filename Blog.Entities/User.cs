@@ -11,6 +11,7 @@ namespace Blog.Entities
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class User
     {
@@ -18,14 +19,38 @@ namespace Blog.Entities
         {
             this.Article = new HashSet<Article>();
         }
-    
+
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 50 символов")]
+        [Display(Name = "Имя")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 50 символов")]
+        [Display(Name = "Фамилия")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "Логин")]
         public string Login { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
+        [ScaffoldColumn(false)]
         public bool IsAdmin { get; set; }
+        [ScaffoldColumn(false)]
         public bool IsEnable { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "E-Mail")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "Домашний адрес")]
+        public string Home { get; set; }
+        [Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "Номер телефона")]
+        public int Phone { get; set; }
+        [Display(Name = "О себе")]
+        public string About { get; set; }
     
         public virtual ICollection<Article> Article { get; set; }
     }

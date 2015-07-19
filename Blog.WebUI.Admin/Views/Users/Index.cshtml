@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Blog.Entities.User>
+@{
+    ViewBag.Title = "Users List";
+    Layout = "~/Views/Shared/_layout.cshtml";
+
+    WebGrid usersGrid = new WebGrid(@Model);
+}
+
+<h2>Users List</h2>
+
+@usersGrid.GetHtml(
+        tableStyle: "table",
+        alternatingRowStyle: "alternate",
+        selectedRowStyle: "selected",
+        headerStyle: "header",
+        columns: usersGrid.Columns(
+                usersGrid.Column("Id", "Номер"),
+                usersGrid.Column("FirstName", "Имя"),
+                usersGrid.Column("LastName", "Фамилия"),
+                usersGrid.Column("Login", "Логин"),
+                usersGrid.Column("Password", "Пароль"),
+
+                usersGrid.Column("IsAdmin", "Админ", format: (item) => @Html.Raw(
+                            "<form method='post'>" +
+                            "<input name='ID' value='" +
+                            item.Id +
+                            "'style='display:none'/>" +
+                            "<input name='IsAdmin' value='" +
+                            ((item.IsAdmin) ? "false" : "true") +
+                            "'style='display:none'/>" +
+                            "<button style='color:" +
+                            ((item.IsAdmin) ? "green" : "red") +
+                            "' type='submit'>" +
+                            ((item.IsAdmin) ? "On" : "Off") +
+                            "</button>" +
+                            "</form>")),
+
+                usersGrid.Column("IsEnable", "Активен", format: (item) => @Html.Raw(
+                            "<form method='post'>" +
+                            "<input name='ID' value='" +
+                            item.Id +
+                            "'style='display:none'/>" +
+                            "<input name='IsEnable' value='" +
+                            ((item.IsEnable) ? "false" : "true") +
+                            "'style='display:none'/>" +
+                            "<button style='color:" +
+                            ((item.IsEnable) ? "green" : "red") +
+                            "' type='submit'>" +
+                            ((item.IsEnable) ? "On" : "Off") +
+                            "</button>" +
+                            "</form>")),
+
+                usersGrid.Column(format: (item) => @Html.Raw(
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }).ToString() + " | " +
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }).ToString() + " | " +
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }).ToString()))
+                                  )
+                  )
+
+<div>
+    @Html.ActionLink("Create New", "Create")
+</div>

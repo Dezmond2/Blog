@@ -12,7 +12,7 @@ namespace Blog.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class BlogEntities : DbContext
     {
         public BlogEntities()

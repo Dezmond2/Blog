@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
-using System.Data.Objects;
 
 using Blog.Entities;
 
@@ -34,21 +33,23 @@ namespace Blog.Repository
         }
         public void UpdateUser(int Id, bool? IsEnable, bool? IsAdmin)
         {
-            using (ObjectContext context = new ObjectContext(_connectionString))
+            User user = entities.User.Find(Id);
+
+            if (IsEnable != null)
             {
-                User user = context.CreateObjectSet<User>().First(u => u.Id == Id);
-
-                if (IsEnable != null)
-                {
-                    user.IsEnable = (bool)IsEnable;
-                }
-                if (IsAdmin != null)
-                {
-                    user.IsAdmin = (bool)IsAdmin;
-                }
-
-                context.SaveChanges();
+                user.IsEnable = (bool)IsEnable;
             }
+            if (IsAdmin != null)
+            {
+                user.IsAdmin = (bool)IsAdmin;
+            }
+
+            entities.SaveChanges();
+        }
+        public void CreateUser(User user)
+        {
+            entities.User.Add(user);
+            entities.SaveChanges();
         }
     }
 }

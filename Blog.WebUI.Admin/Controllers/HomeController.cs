@@ -16,21 +16,10 @@ namespace Blog.WebUI.Admin.Controllers
             string connectionString = ConfigurationManager.ConnectionStrings["BlogEntities"].ConnectionString;
             this._userRepository = new EFUserRepository(connectionString);
         }
-        //
         // GET: Home
         public ActionResult Index()
         {
-            var users = this._userRepository.GetUsers();
-            ViewBag.Users = users;
-            return View();
-        }
-        [HttpGet]
-        public ActionResult UpdateUser(int Id, bool? IsEnable, bool? IsAdmin)
-        {
-            this._userRepository.UpdateUser(Id, IsEnable, IsAdmin);
-            var users = this._userRepository.GetUsers();
-            ViewBag.Users = users;
-            return View("Index");
+            return Redirect("Users/Index");
         }
     }
 }

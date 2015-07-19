@@ -1,40 +1,11 @@
 ﻿@using Blog.Entities;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Users List";
     Layout = "~/Views/Shared/_layout.cshtml";
 
     List<User> users = ViewBag.Users;
     WebGrid usersGrid = new WebGrid(users);
 }
 
-<h2>Users List</h2>
+<h2>Index</h2>
 
-@usersGrid.GetHtml(
-        tableStyle: "table",
-        alternatingRowStyle: "alternate",
-        selectedRowStyle: "selected",
-        headerStyle: "header",
-        columns: usersGrid.Columns(
-                usersGrid.Column("Id"),
-                usersGrid.Column("FirstName"),
-                usersGrid.Column("LastName"),
-                usersGrid.Column("Login"),
-                usersGrid.Column("Password"),
-                usersGrid.Column("IsAdmin", format: (item) => @Html.Raw(
-                        "<input name='IsAdmin' id='IsAdmin' style='color:" +
-                        ((item.IsAdmin) ? "green" : "red") +
-                        "' type='button' onClick=\"location.href='" + 
-                        @Url.Action("UpdateUser", "Home", new {Id = item.Id, IsAdmin = (item.IsAdmin) ? "false" : "true"}) +
-                        "'\" value='" +
-                        ((item.IsAdmin) ? "On" : "Off") +
-                        "'</input>")),
-                usersGrid.Column("IsEnable", format: (item) => @Html.Raw(
-                        "<input name='IsEnable' id='IsEnable' style='color:" +
-                        ((item.IsEnable) ? "green" : "red") +
-                        "' type='button' onClick=\"location.href='" + 
-                        @Url.Action("UpdateUser", "Home", new {Id = item.Id, IsEnable = (item.IsEnable) ? "false" : "true"}) +
-                        "'\" value='" +
-                        ((item.IsEnable) ? "On" : "Off") +
-                        "'</input>"))
-                                  )
-                  )

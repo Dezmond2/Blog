@@ -12,5 +12,6 @@ namespace Blog.Repository
         User GetUser(string login);
         List<User> GetUsers();
         void UpdateUser(int Id, bool? IsEnable, bool? IsAdmin);
+        void CreateUser(User user);
     }
 }
